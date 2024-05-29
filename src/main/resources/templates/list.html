@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minden ember</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Minden ember</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nev</th>
+            <th>Szuletesi ev</th>
+            <th>Nem</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ember : ${emberek}">
+            <td><span th:text="${ember.emberId}">Title </span></td>
+            <td><span th:text="${ember.name}">Title </span></td>
+            <td><span th:text="${ember.yearOfBirth}"></span></td>
+            <td><span th:text="${ember.sex}">no Data</span></td>
+            <td>
+                <div>
+                    <a th:href="@{/introduction/{id}(id=${ember.emberId})}">
+                        <button class="btn btn-outline-dark">Bemutatkozas</button>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="col col-5">
+        <div style="padding-top: 25px">
+            <a href="/">
+                <button type="button" class="btn btn-secondary">Vissza a kezdolapra</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
